@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript slice() Method Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Understanding JavaScript slice() Method</h1>
+
+    <h2>Example Code and Explanation</h2>
+
+    <pre>
+    <code>
+// Original array
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+// Example 1: Slice from index 2 till the end
+console.log(animals.slice(2));
+// Output: ["camel", "duck", "elephant"]
+
+// Example 2: Slice from index 2 to 4 (excluding 4)
+console.log(animals.slice(2, 4));
+// Output: ["camel", "duck"]
+
+// Example 3: Slice from index 1 to 5 (excluding 5)
+console.log(animals.slice(1, 5));
+// Output: ["bison", "camel", "duck", "elephant"]
+
+// Example 4: Using negative index (-2) to slice the last 2 elements
+console.log(animals.slice(-2));
+// Output: ["duck", "elephant"]
+
+// Example 5: Slice from index 2 to -1 (excluding the last element)
+console.log(animals.slice(2, -1));
+// Output: ["camel", "duck"]
+
+// Example 6: Slice the entire array (copying the array)
+console.log(animals.slice());
+// Output: ["ant", "bison", "camel", "duck", "elephant"]
+    </code>
+    </pre>
+
+    <h2>Hinglish Explanation</h2>
+
+    <p><strong>1. console.log(animals.slice(2));</strong></p>
+    <p>Output: ["camel", "duck", "elephant"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    slice(2) ka matlab hai array ka 2nd index (0-based indexing) se slice karna.<br>
+    Yani, animals array ka 2nd index se lekar end tak ke sab elements nikal ke ek naya array banayega.<br>
+    animals[2] = "camel", so result me "camel", "duck", aur "elephant" milega.
+    </p>
+
+    <p><strong>2. console.log(animals.slice(2, 4));</strong></p>
+    <p>Output: ["camel", "duck"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    slice(2, 4) ka matlab hai index 2 se 4 tak slice karo, lekin 4th index ko exclude karte hain.<br>
+    Yani, 2nd aur 3rd index ke elements milege ("camel" aur "duck"), lekin 4th index ("elephant") ko ignore karenge.
+    </p>
+
+    <p><strong>3. console.log(animals.slice(1, 5));</strong></p>
+    <p>Output: ["bison", "camel", "duck", "elephant"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    slice(1, 5) me 1st index se 5th index tak slice karna hai, lekin 5th index ko exclude karte hain.<br>
+    Toh result me "bison" (1st index), "camel" (2nd index), "duck" (3rd index), aur "elephant" (4th index) milega.<br>
+    5th index pe koi element nahi hai, isliye output me nahi aayega.
+    </p>
+
+    <p><strong>4. console.log(animals.slice(-2));</strong></p>
+    <p>Output: ["duck", "elephant"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    Jab hum slice(-2) use karte hain, iska matlab hai end se 2 elements ko slice karna.<br>
+    Yani, last ke 2 elements "duck" aur "elephant" nikal ke naya array banayega.
+    </p>
+
+    <p><strong>5. console.log(animals.slice(2, -1));</strong></p>
+    <p>Output: ["camel", "duck"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    slice(2, -1) ka matlab hai 2nd index se slice karo aur last ke ek element ko ignore kar do.<br>
+    Yani, 2nd index ("camel") se slice shuru hoga aur last ke ek element "elephant" ko exclude kar diya jayega.<br>
+    Output me "camel" aur "duck" aayenge.
+    </p>
+
+    <p><strong>6. console.log(animals.slice());</strong></p>
+    <p>Output: ["ant", "bison", "camel", "duck", "elephant"]</p>
+    <p><strong>Hinglish Explanation:</strong><br>
+    Jab aap slice() bina kisi argument ke use karte ho, toh pura array ko copy kar leta hai.<br>
+    Yani, pura animals array as it is naya array me return hoga, original array same rahega.<br>
+    Iska output hai pura array: ["ant", "bison", "camel", "duck", "elephant"].
+    </p>
+
+    <h2>Summary</h2>
+    <ul>
+        <li>Positive index se slice start hota hai us index se.</li>
+        <li>Negative index end se slice karta hai.</li>
+        <li>slice() me second argument agar diya gaya ho, toh us index ko exclude karta hai.</li>
+        <li>Agar slice() bina arguments ke use kiya jaye, toh pura array ka copy return karta hai.</li>
+    </ul>
+
+</body>
+</html>
