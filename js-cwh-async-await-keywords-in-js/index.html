@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async and Await Keywords</title>
+  </head>
+  <body>
+<h1>Async and Await Keywords</h1>
+<br>
+<h2>Async Keywords:</h2>
+<p><strong>async</strong> makes a function return a Promise</p>
+<p>The keyword <strong>async</strong> before a function makes the function return a promise:</p>
+    
+<p>Async function JavaScript mein ek special type ki function hoti hai jo asynchronous (non-blocking) operations handle karti hai. Iska matlab yeh hai ki yeh function kisi bhi long-running operation ko background mein perform karne deti hai bina baaki code ko rokke. Jab wo operation complete ho jata hai, toh result ko handle kar sakte hain.</p>
+<br>
+<h2>Await Keywords</h2>
+<p>await makes a function wait for a Promise</p>
+<p>The <strong>await</strong>  keyword can only be used inside an <strong>async</strong> function.</p>
+<p>The <strong>await</strong> keyword makes the function pause the execution and wait for a resolved promise before it continues:</p>
+<br>
+<p><strong>Notes:</strong> <i>run the code in inspect -> console mode to learn and output of the code.</i></p>
+
+
+    <script>
+      // Ek promise jo 1 second ke baad resolve hota hai
+      function waitOneSecond() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("1 second ho gaya");
+          }, 1000);
+        });
+      }
+
+      // Ek aur promise jo 2 seconds ke baad resolve hota hai
+      function waitTwoSeconds() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("2 seconds ho gaye");
+          }, 2000);
+        });
+      }
+
+      // Ek aur promise jo 3 seconds ke baad resolve hota hai
+      function waitThreeSeconds() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("3 seconds ho gaye");
+          }, 3000);
+        });
+      }
+
+      // Async function banate hain to handle promises sequentially
+      async function runTimersSequentially() {
+        console.log("Sequential timers shuru...");
+
+        // Pehla promise wait kar raha hai
+        const firstMessage = await waitOneSecond();
+        console.log(firstMessage); // 1 second ke baad print hoga
+
+        // Dusra promise wait kar raha hai
+        const secondMessage = await waitTwoSeconds();
+        console.log(secondMessage); // 2 seconds ke baad print hoga
+
+        // Teesra promise wait kar raha hai
+        const thirdMessage = await waitThreeSeconds();
+        console.log(thirdMessage); // 3 seconds ke baad print hoga
+      }
+
+      // Function ko call karte hain
+      runTimersSequentially();
+    </script>
+  </body>
+</html>
