@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Spread Operator Notes</title>
+    <style>
+        /* Global Styles for Dark Mode */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1e1e1e; /* Darker background for container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+        }
+
+        h1, h2 {
+            color: #ffffff; /* White color for headings */
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #bdbdbd; /* Light grey for paragraph text */
+        }
+
+        .code-section {
+            background-color: #333333; /* Dark background for code section */
+            color: #f5f5f5; /* Light color for code text */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            margin: 0;
+            color: #e0e0e0; /* Light color for code */
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Spread Operator Notes</h1>
+
+        <h2>Definition</h2>
+        <p>
+            Spread operator (<code>...</code>) ka use arrays aur objects ko expand ya unme se elements ko extract karne ke liye hota hai. Iska use karne se aap arrays aur objects ko asani se manipulate kar sakte hain.
+        </p>
+
+        <h2>Examples</h2>
+
+        <h3>Example 1: Spread with Arrays</h3>
+        <div class="code-section">
+            <pre><code>
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+// Spread operator se do arrays ko merge karna
+const mergedArray = [...array1, ...array2];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+            </code></pre>
+        </div>
+        <p>
+            Yahan <code>...array1</code> aur <code>...array2</code> ke through dono arrays ko merge kiya gaya hai.
+        </p>
+
+        <h3>Example 2: Spread with Function Arguments</h3>
+        <div class="code-section">
+            <pre><code>
+const numbers = [1, 2, 3];
+
+function add(x, y, z) {
+    return x + y + z;
+}
+
+// Spread operator se array ko function arguments me pass karna
+const result = add(...numbers);
+console.log(result); // Output: 6
+            </code></pre>
+        </div>
+        <p>
+            Yahan <code>...numbers</code> ke through array ke elements ko individual arguments me convert kiya gaya hai.
+        </p>
+
+        <h3>Example 3: Spread with Objects</h3>
+        <div class="code-section">
+            <pre><code>
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+
+// Spread operator se objects ko merge karna
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // Output: { a: 1, b: 3, c: 4 }
+            </code></pre>
+        </div>
+        <p>
+            Yahan <code>...obj1</code> aur <code>...obj2</code> ko merge karte waqt <code>b</code> ki value <code>obj2</code> se overwrite hoti hai.
+        </p>
+
+        <h3>Example 4: Cloning an Object</h3>
+        <div class="code-section">
+            <pre><code>
+const original = { x: 1, y: 2 };
+const clone = { ...original };
+
+console.log(clone); // Output: { x: 1, y: 2 }
+console.log(clone === original); // Output: false
+            </code></pre>
+        </div>
+        <p>
+            Yahan <code>original</code> object ka clone create kiya gaya hai, lekin ye <code>original</code> se alag reference hai.
+        </p>
+
+        <h2>Summary</h2>
+        <p>
+            <ul>
+                <li><code>...</code> operator ka use arrays aur objects ko expand ya merge karne ke liye hota hai.</li>
+                <li>Ye function arguments me bhi asani se elements ko pass karne me help karta hai.</li>
+                <li>Objects ko merge karte waqt, last defined value overwrite hoti hai.</li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>

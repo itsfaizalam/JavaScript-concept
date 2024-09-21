@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIFE Example and Notes</title>
+    <style>
+/* Global Styles for Dark Mode */
+body {
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #1e1e1e; /* Darker background for container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+}
+
+h1, h2 {
+    color: #ffffff; /* White color for headings */
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #bdbdbd; /* Light grey for paragraph text */
+}
+
+.code-section {
+    background-color: #333333; /* Dark background for code section */
+    color: #f5f5f5; /* Light color for code text */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+pre {
+    margin: 0;
+    color: #e0e0e0; /* Light color for code */
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 20px;
+   
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IIFE (Immediately Invoked Function Expression) Example and Notes</h1>
+        <p>
+            IIFE (Immediately Invoked Function Expression) ek aisa function hota hai jo turant define hone ke baad execute ho jata hai. 
+            Ye JavaScript mein kaafi common pattern hai taaki hum apne variables ko global scope se alag rakh sakein aur unka accidental 
+            overwrite na ho.
+        </p>
+
+        <h2>Basic Syntax of IIFE:</h2>
+        <div class="code-section">
+            <pre>
+(function() {
+    // Yeh function turant execute hoga
+    console.log("Yeh ek IIFE hai!");
+})();
+            </pre>
+        </div>
+        <p>Is example mein, function define hote hi turant execute ho jata hai aur console mein "Yeh ek IIFE hai!" print karta hai.</p>
+
+        <h2>Arrow Function Syntax:</h2>
+        <div class="code-section">
+            <pre>
+(() => {
+    console.log("Yeh ek arrow function wala IIFE hai!");
+})();
+            </pre>
+        </div>
+        <p>Arrow function ka use karke bhi hum IIFE ko likh sakte hain, jaise upar diya gaya example.</p>
+
+        <h2>Example with Parameters:</h2>
+        <div class="code-section">
+            <pre>
+let result = (function(a, b) {
+    return a + b;
+})(5, 10);
+
+console.log(result); // Output: 15
+            </pre>
+        </div>
+        <p>Is example mein, humne IIFE ko 2 parameters diye hain (5 aur 10), jo turant add hoke result return karte hain. Console mein result 15 aayega.</p>
+
+        <h2>HTML Integration Example:</h2>
+        <p>Aap is tarah ke IIFE ko apne HTML pages mein script tag ke andar use kar sakte hain:</p>
+        <div class="code-section">
+            <pre>
+&lt;script&gt;
+    (function() {
+        console.log("Yeh ek IIFE hai!");
+    })();
+&lt;/script&gt;
+            </pre>
+        </div>
+
+        <p>
+            IIFE ka use encapsulation ke liye hota hai taaki variables global namespace ko pollute na karein. Is tarah ka pattern 
+            JavaScript mein kaafi useful hota hai jab humein local scope chahiye.
+        </p>
+    </div>
+</body>
+</html>

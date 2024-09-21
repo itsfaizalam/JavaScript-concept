@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Hoisting Notes</title>
+    <style>
+        /* Global Styles for Dark Mode */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1e1e1e; /* Darker background for container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+        }
+
+        h1, h2 {
+            color: #ffffff; /* White color for headings */
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #bdbdbd; /* Light grey for paragraph text */
+        }
+
+        .code-section {
+            background-color: #333333; /* Dark background for code section */
+            color: #f5f5f5; /* Light color for code text */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            margin: 0;
+            color: #e0e0e0; /* Light color for code */
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Hoisting Notes</h1>
+        <p><strong>Defination: </strong>Hoisting JavaScript ka ek behavior hai jismein variable aur function declarations ko unke scope ke shuruat mein upar le jaya jata hai. Matlab, aap variables aur functions ko unke declare hone se pehle bhi use kar sakte hain, lekin unki values undefined hoti hain jab tak unhe initialize nahi kiya jata.</p>
+        <h2>Example 1: Basic Variable Hoisting</h2>
+        <div class="code-section">
+            <pre><code>
+console.log(x); // Output: undefined
+var x = 5;
+console.log(x); // Output: 5
+            </code></pre>
+        </div>
+        <p>
+            Pehla <code>console.log(x);</code> call <code>undefined</code> print karta hai kyunki <code>var x;</code> hoisting ki wajah se upar aa jata hai, lekin uska initialization <code>5</code> nahi hua hai.
+            Dusra <code>console.log(x);</code> par <code>5</code> print hota hai kyunki ab <code>x</code> ko value mil chuki hai.
+        </p>
+
+        <h2>Example 2: Function Hoisting</h2>
+        <div class="code-section">
+            <pre><code>
+greet(); // Output: "Hello!"
+function greet() {
+    console.log("Hello!");
+}
+            </code></pre>
+        </div>
+        <p>
+            Function <code>greet()</code> ko call karne se pehle hi hum isse use kar rahe hain, aur ye sahi tarike se kaam karta hai kyunki function declaration hoisting ke through upar aa gaya hai.
+        </p>
+
+        <h2>Example 3: Let and Const Hoisting</h2>
+        <div class="code-section">
+            <pre><code>
+console.log(a); // Output: ReferenceError: Cannot access 'a' before initialization
+let a = 10;
+
+console.log(b); // Output: ReferenceError: Cannot access 'b' before initialization
+const b = 20;
+            </code></pre>
+        </div>
+        <p>
+            <code>let</code> aur <code>const</code> variables hoisted hote hain, lekin unhe temporal dead zone (TDZ) ke wajah se unke declare hone se pehle access nahi kiya ja sakta. Isliye pehle <code>console.log(a);</code> aur <code>console.log(b);</code> par ReferenceError aata hai.
+        </p>
+
+        <h2>Example 4: Function Expression Hoisting</h2>
+        <div class="code-section">
+            <pre><code>
+console.log(c); // Output: ReferenceError: Cannot access 'c' before initialization
+var c = function() {
+    console.log("I am a function expression!");
+};
+
+c(); // Output: "I am a function expression!"
+            </code></pre>
+        </div>
+        <p>
+            Yahan <code>c</code> ek function expression hai. Pehle <code>console.log(c);</code> par ReferenceError aata hai kyunki function expression hoisting nahi hoti.
+            Lekin jab hum <code>c();</code> call karte hain, tab function properly call hota hai kyunki ab <code>c</code> ko value mil chuki hai.
+        </p>
+    </div>
+</body>
+</html>
