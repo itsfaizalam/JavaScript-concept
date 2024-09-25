@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Stringify and Parse Method - JavaScript</title>
+    <style>
+      /* Define color variables for light and dark mode */
+      :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+        --note-background-color: #f9f9f9;
+        --note-border-color: #2196f3;
+        --pre-background-color: #f4f4f4;
+        --pre-border-color: #ddd;
+      }
+
+      /* Dark mode color variables */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background-color: #1e1e1e;
+          --text-color: #f4f4f4;
+          --note-background-color: #333;
+          --note-border-color: #6a9af7;
+          --pre-background-color: #444;
+          --pre-border-color: #666;
+        }
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        padding-bottom: 40px;
+      }
+
+      .note {
+        background-color: var(--note-background-color);
+        border-left: 6px solid var(--note-border-color);
+        padding: 16px;
+        margin: 20px 0;
+        border-radius: 5px;
+      }
+
+      pre {
+        background-color: var(--pre-background-color);
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--pre-border-color);
+        overflow-x: auto;
+      }
+
+      /* Responsive layout */
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 24px;
+          padding-bottom: 20px;
+        }
+
+        pre {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript JSON Methods Notes</h1>
+
+    <div class="note">
+      <h3>What is <code>JSON.stringify()</code>?</h3>
+      <p>
+        <code>JSON.stringify()</code> is a method in JavaScript that converts a
+        JavaScript object or value into a JSON string. It’s often used when you
+        need to send data over a network or store it in a string format.
+      </p>
+      <p><strong>Example:</strong></p>
+      <pre>
+const person = {
+    name: "John",
+    age: 30,
+    city: "New York"
+};
+
+const jsonString = JSON.stringify(person);
+
+console.log(jsonString); // Output: {"name":"John","age":30,"city":"New York"}
+      </pre>
+    </div>
+
+    <div class="note">
+      <h3>What is <code>JSON.parse()</code>?</h3>
+      <p>
+        <code>JSON.parse()</code> is a method in JavaScript that parses a JSON
+        string and converts it back into a JavaScript object. It’s often used
+        when you receive data from an API or local storage in JSON format.
+      </p>
+      <p><strong>Example:</strong></p>
+      <pre>
+const jsonString = '{"name":"John", "age":30, "city":"New York"}';
+
+const person = JSON.parse(jsonString);
+
+console.log(person.name);  // Output: John
+      </pre>
+      <p>
+        <strong>Notes: </strong>We can store only string in the storage, not the
+        Object, but if we require it as an object, we can parse with JSON.parse.
+      </p>
+    </div>
+  </body>
+</html>
